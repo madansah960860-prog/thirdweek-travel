@@ -1,0 +1,133 @@
+LODESTAR ATLAS - GOOGLE ADS DEMAND GEN ASSETS
+=============================================
+
+NOTE BEFORE USE
+All copy in this file is a starting draft. Review every line against current
+Google Ads editorial policy and against the advertiser's own substantiated
+claims before running any of it. Prices, availability and feature claims must
+be verifiable and current at the time the ad serves. Nothing here has been
+legally reviewed.
+
+Character counts in brackets include spaces and punctuation.
+
+
+BUSINESS NAME (25 characters max - 1 asset)
+-------------------------------------------
+Lodestar Atlas [14]
+
+
+HEADLINES (40 characters max - 15 assets)
+-----------------------------------------
+Plan Your Trip Day By Day [25]
+See The Drive Time Between Stops [32]
+Build A Realistic Day By Day Plan [33]
+Trip Planning For US Travelers [30]
+Fit The Trip To The Days You Have [33]
+Budget Every Day Of The Trip In USD [35]
+Know The Day Before You Live It [31]
+Road Trip Plans That Actually Add Up [36]
+First Trip Abroad, Planned In Order [35]
+Family Trips, Measured Not Guessed [34]
+Sample Plans You Can Copy And Edit [34]
+A Plan You Can Navigate By [26]
+Free Day By Day Trip Planning [29]
+A Plan That Works With No Signal [32]
+Group Trips Kept In One Plan [28]
+
+
+LONG HEADLINES (90 characters max - 10 assets)
+----------------------------------------------
+Turn a rough travel idea into a measured day by day plan with real drive times [78]
+Day by day planning built around the vacation days a US worker actually gets [76]
+Plan from a US airport with budgets in dollars and every distance in miles [74]
+Road trip plans that show the drive time between every stop on the route [72]
+Sample plans you can copy, edit and carry on paper or with no phone signal [74]
+See the drive time between every stop before you commit to the schedule [71]
+Group and family trips kept in one plan that everyone can actually follow [73]
+A first trip out of the US, with the paperwork explained in deadline order [74]
+Every day costed in dollars before you book a flight, a room or a rental [72]
+A calmer way to plan travel, built for people with limited vacation days [72]
+
+
+DESCRIPTIONS (90 characters max - 10 assets)
+--------------------------------------------
+Add stops, see the drive time between them, and watch the day add up. [69]
+Free for your first two trips. No credit card and no trial countdown. [69]
+Built for US travelers: dollars, miles, degrees Fahrenheit and PTO days. [72]
+Print the plan or carry a PDF that still works with no phone signal. [68]
+Each day is a Dayline: every stop, the travel between them, a real cost. [72]
+One shared link keeps a group trip out of the group chat and in order. [70]
+See what each day costs in dollars before the trip, not during it. [66]
+New to international travel? The paperwork is explained in order. [65]
+Road trip legs are shown in miles with a drive time you can rely on. [68]
+Copy a finished sample plan, then change whatever you want. [59]
+
+
+CALL TO ACTION (from Google's standard set - 5 suggestions)
+-----------------------------------------------------------
+Learn more [10]
+Get started [11]
+Sign up [7]
+Subscribe [9]
+See more [8]
+
+
+IMAGE AND LOGO NOTES (internal, not ad copy)
+--------------------------------------------
+Responsive display also needs images and a logo. The brand moved to a cool,
+low-key night palette, so this art direction is the opposite of the previous
+set. Use coast, mountain, open-road and night-sky subjects graded cool, with
+deep shadows and a single hard light source. Avoid warm golden-hour grading,
+pastel skies, high-key daylight, and anything that reads as cottage or rustic.
+
+Palette reference (site tokens):
+  Ground       #05070C near-black
+  Action       #3D5AFE cobalt
+  Data accent  #FFC65C signal amber
+  Text         #EEF2F8 paper
+
+The logo is the four-point lodestar mark. On transparent backgrounds supply it
+in #FFC65C. Do not recolour it, and do not add a glow or a drop shadow.
+
+Required ratios:
+  Landscape 1.91:1   - 1200 x 628 px minimum
+  Square 1:1         - 1200 x 1200 px minimum
+  Portrait 4:5       - 960 x 1200 px minimum, optional but recommended
+  Logo square 1:1    - 1200 x 1200 px, transparent background
+  Logo landscape 4:1 - 1200 x 300 px, transparent background
+
+Do not place text over the supplied images. Google overlays the headline and
+description itself, and burned-in text can cause a disapproval or crop badly.
+
+
+LANDING PAGE PAIRING NOTES (internal, not ad copy)
+--------------------------------------------------
+Planning speed and day-by-day angles     -> trip-planner.html
+Sample plan and copy-a-plan angles       -> itineraries.html
+Budget and cost angles                   -> destinations.html
+First-time international angles          -> blog-first-international-trip.html
+Road trip angles                         -> destination-national-parks.html
+Free tier and pricing angles             -> pricing.html
+
+Landing page relevance is a policy requirement. Whatever an asset promises
+must appear prominently on the page the click lands on.
+
+
+COMPLIANCE CHECKLIST APPLIED TO THIS FILE
+-----------------------------------------
+- No all-caps words other than the acronyms US, USD, PDF and PTO.
+- No exclamation points, no repeated punctuation, no emoji, no symbols.
+- No reference to the ad itself and no use of "click here" or "click now".
+- No superlatives and no unverifiable claims. No "best", "number one",
+  "guaranteed" or similar.
+- No fake urgency, fake scarcity, countdowns or invented statistics.
+- No specific prices, fares, discounts or deals. Feature claims only.
+- No airline, hotel, competitor or trademarked brand names.
+- No phone numbers in any headline.
+- Every line is written to stand alone, because Google mixes assets.
+- Angles varied across the set: planning speed, day-by-day organization,
+  budgeting, group and family trips, first-time travelers, road trips,
+  and international travel departing from the US.
+- Tone matches the site: plain, measured, specific, never hurried.
+- Brand vocabulary is used sparingly. "Dayline" appears once in the set,
+  because an unfamiliar term in a mixed asset has to carry its own meaning.

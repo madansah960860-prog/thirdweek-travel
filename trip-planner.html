@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trip Planner | Build Measured Daylines in Your Browser</title>
+<meta name="description" content="Build a day-by-day travel plan free in your browser. Add time-stamped stops, read the True Pace travel time between them, and watch the Ledger total the cost per traveler in USD.">
+<link rel="canonical" href="https://www.lodestaratlas.com/trip-planner.html">
+<meta name="theme-color" content="#05070C">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lodestar Atlas">
+<meta property="og:title" content="Trip Planner | Build Measured Daylines in Your Browser">
+<meta property="og:description" content="Add time-stamped stops, read the True Pace travel time between them, and watch the Ledger total the cost per traveler in USD.">
+<meta property="og:url" content="https://www.lodestaratlas.com/trip-planner.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&q=70">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/img/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Lodestar Atlas Trip Planner",
+  "url": "https://www.lodestaratlas.com/trip-planner.html",
+  "applicationCategory": "TravelApplication",
+  "operatingSystem": "Any modern web browser",
+  "description": "A browser-based builder for day-by-day travel plans, with measured travel times between stops and running USD cost estimates.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "description": "The free tier covers up to two saved trips, with no expiry."
+  },
+  "publisher": { "@type": "Organization", "name": "Lodestar Atlas" }
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap wrap-wide header-inner">
+    <a class="wordmark" href="index.html">Lodestar<span class="wordmark-sub">Trip Atlas</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span class="nav-toggle-bars" aria-hidden="true"></span><span class="nav-toggle-text">Menu</span>
+    </button>
+    <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-parent">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="submenu-plan">Plan <span class="nav-caret" aria-hidden="true">&#9660;</span></button>
+          <ul class="nav-submenu" id="submenu-plan">
+            <li><a class="nav-link" href="how-it-works.html">How It Works</a></li>
+            <li><a class="nav-link" href="trip-planner.html" aria-current="page">Trip Planner</a></li>
+            <li><a class="nav-link" href="tools.html">Tools &amp; Checklists</a></li>
+          </ul>
+        </li>
+        <li class="nav-parent">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="submenu-dest">Destinations <span class="nav-caret" aria-hidden="true">&#9660;</span></button>
+          <ul class="nav-submenu" id="submenu-dest">
+            <li><a class="nav-link" href="destinations.html">Browse the Atlas</a></li>
+            <li><a class="nav-link" href="destination-iceland.html">Iceland</a></li>
+            <li><a class="nav-link" href="destination-kyoto.html">Kyoto, Japan</a></li>
+            <li><a class="nav-link" href="destination-national-parks.html">National Parks Road Trip</a></li>
+          </ul>
+        </li>
+        <li class="nav-parent">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="submenu-itin">Itineraries <span class="nav-caret" aria-hidden="true">&#9660;</span></button>
+          <ul class="nav-submenu" id="submenu-itin">
+            <li><a class="nav-link" href="itineraries.html">All Sample Daylines</a></li>
+            <li><a class="nav-link" href="itinerary-iceland-ring-road.html">Iceland South Coast, 3 Days</a></li>
+            <li><a class="nav-link" href="itinerary-kyoto-slow.html">Kyoto Slow Travel, 3 Days</a></li>
+            <li><a class="nav-link" href="itinerary-utah-parks.html">Utah Parks Loop, 3 Days</a></li>
+          </ul>
+        </li>
+        <li><a class="nav-link" href="blog.html">Guides</a></li>
+        <li><a class="nav-link" href="pricing.html">Pricing</a></li>
+        <li class="nav-parent">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="submenu-co">Company <span class="nav-caret" aria-hidden="true">&#9660;</span></button>
+          <ul class="nav-submenu" id="submenu-co">
+            <li><a class="nav-link" href="about.html">About Us</a></li>
+            <li><a class="nav-link" href="for-travel-agents.html">For Travel Agents</a></li>
+            <li><a class="nav-link" href="testimonials.html">Reviews</a></li>
+            <li><a class="nav-link" href="faq.html">FAQ</a></li>
+            <li><a class="nav-link" href="contact.html">Contact Us</a></li>
+          </ul>
+        </li>
+        <li class="nav-cta-slot"><a class="btn btn-primary btn-sm" href="pricing.html">See Atlas Pro</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero page-head">
+    <span class="leaf" style="left:5%;top:44%" aria-hidden="true"></span>
+    <span class="leaf leaf-2" style="right:7%;top:22%" aria-hidden="true"></span>
+    <div class="wrap wrap-wide">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol><li><a href="index.html">Home</a></li><li>Trip Planner</li></ol>
+      </nav>
+      <div class="hero-grid">
+        <div>
+          <h1 class="hero-display">Build the Daylines, one measured day at a time</h1>
+          <p class="hero-lede">Choose a destination, drop stops into days, and watch True Pace and the Ledger update under them. Nothing is stored until you decide to store it.</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#planner">Go straight to the board</a>
+            <a class="btn btn-ghost" href="how-it-works.html">Read the method first</a>
+          </div>
+        </div>
+        <div class="hero-media media-zoom">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=900&q=70"
+               alt="A still alpine lake surrounded by dark forested peaks"
+               width="900" height="1200" fetchpriority="high" decoding="async" data-fallback="alpine-lake-peaks">
+          <p class="hero-badge">Free tier: two saved trips, unlimited editing, no expiry date.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ THE PLANNER ============================ -->
+  <section class="section bg-shell section-overlap" id="planner">
+    <div class="wrap wrap-wide">
+      <h2 class="measure">Your board</h2>
+      <p class="measure mb-6">Pick a destination to load its Atlas stops, choose the day you are filling, then add. Every travel time and every dollar recalculates as you work.</p>
+
+      <div class="planner" data-planner>
+
+        <!-- SIDE: controls + stop library -->
+        <div class="planner-side">
+          <div class="card" style="margin-bottom:1.5rem">
+            <h3>Trip parameters</h3>
+
+            <div class="field">
+              <label for="planner-destination">Destination</label>
+              <select id="planner-destination">
+                <option value="iceland">Iceland, south coast</option>
+                <option value="kyoto">Kyoto, Japan</option>
+                <option value="utah">Utah national parks</option>
+                <option value="lisbon">Lisbon, Portugal</option>
+                <option value="generic">Somewhere else (generic stops)</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="planner-party">Number of travelers</label>
+              <input type="number" id="planner-party" value="2" min="1" max="12" step="1" inputmode="numeric">
+              <span class="hint">The Ledger multiplies every cost below by this number.</span>
+            </div>
+
+            <div class="field">
+              <label for="planner-target-day">Add stops to</label>
+              <select id="planner-target-day">
+                <option value="0">Day 1</option>
+                <option value="1">Day 2</option>
+                <option value="2">Day 3</option>
+              </select>
+              <span class="hint">Set this before you add a stop from the Atlas.</span>
+            </div>
+
+            <div class="btn-row">
+              <button class="btn btn-primary btn-sm" type="button" data-planner-add-day>Add a Dayline</button>
+              <button class="btn btn-ghost btn-sm" type="button" data-planner-reset>Clear the board</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>The Atlas</h3>
+            <p style="font-size:0.9375rem">Researched stops, each carrying a suggested start time, a realistic visit duration and an estimated cost per person.</p>
+            <!-- PLACEHOLDER — REPLACE WITH REAL VERIFIED INFORMATION BEFORE LAUNCH -->
+            <div class="planner-library" data-planner-library aria-label="Available stops"></div>
+          </div>
+        </div>
+
+        <!-- MAIN: the day board + summary -->
+        <div>
+          <div class="planner-board" data-planner-board></div>
+
+          <div class="card" style="margin-top:1.5rem">
+            <h3>Trip readout</h3>
+            <div data-planner-summary class="planner-summary"></div>
+            <div class="btn-row" style="margin-top:1.25rem">
+              <button class="btn btn-primary btn-sm" type="button" data-planner-print>Print the board</button>
+              <a class="btn btn-ghost btn-sm" href="pricing.html">Add the Field Export</a>
+            </div>
+            <p class="form-note" style="margin-top:1.25rem">The Ledger estimates the activities and meals you have added. It leaves out flights, lodging, travel insurance and tips. Your board stays in this browser, is written to local storage only after you have made a cookie choice, and is never uploaded without an account.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- READING THE BOARD -->
+  <section class="section">
+    <div class="wrap">
+      <div class="measure mb-6">
+        <span class="kicker">Legend</span>
+        <h2>How to read what the board is telling you</h2>
+        <p>Four readings sit on every Dayline. None of them needs an account, and all of them update the moment you move a stop.</p>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card card-flat">
+          <h3>The time under each stop</h3>
+          <p>That is the True Pace leg: how long it takes to reach the next stop by car, on foot or on transit, with the distance in miles. It assumes ordinary traffic and time spent parking, not an empty road.</p>
+        </div>
+        <div class="card card-flat">
+          <h3>The dollar figure on each day</h3>
+          <p>The Ledger, totalled for your whole party. It counts entries, tours and meals you have placed on that Dayline, and nothing you have not.</p>
+        </div>
+        <div class="card card-flat">
+          <h3>A day that reads as too full</h3>
+          <p>Once stops plus travel pass about eleven active hours, the Dayline is marked. The usual fix is moving one stop to the next day, not starting earlier.</p>
+        </div>
+        <div class="card card-flat">
+          <h3>The readout at the bottom</h3>
+          <p>Trip totals: days plotted, stops placed, hours in transit, and the full cost in USD for everyone travelling. Print it and the readout prints with it.</p>
+        </div>
+      </div>
+
+      <div class="note-band" style="margin-top:2.5rem">
+        <h3>The board is honest about what it cannot see</h3>
+        <p class="mb-0">It does not know today's weather, a strike on the rail line, or that a road closes at dusk in November. Treat every number as a measurement taken in normal conditions, then check the conditions before you go.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPS -->
+  <section class="section">
+    <div class="wrap">
+      <h2 class="measure">Four habits that keep a plan intact once the trip starts</h2>
+      <p class="measure mb-6">Taken from the plans travelers finish, set against the ones abandoned on day two.</p>
+
+      <div class="grid grid-2">
+        <div class="card reveal">
+          <h3>Leave one slot open on every Dayline</h3>
+          <p>A full day has no room for the restaurant you walk past, or the two hours rain takes from you. That open slot is not wasted capacity. It is usually the part of the trip you remember.</p>
+        </div>
+        <div class="card reveal reveal-delay-1">
+          <h3>Put the heaviest stop first</h3>
+          <p>Sunrise hikes, timed-entry tickets and long drives belong at the top of a Dayline. Anything placed after 4 PM is far more likely to be dropped.</p>
+        </div>
+        <div class="card reveal reveal-delay-2">
+          <h3>Judge the arrival day honestly</h3>
+          <p>Land at 3 PM off a red-eye from the East Coast and that Dayline holds one stop, not four. Lodestar Atlas lightens arrival days by default, and you can override that.</p>
+        </div>
+        <div class="card reveal reveal-delay-3">
+          <h3>Book the awkward night first</h3>
+          <p>Most routes have one night in a small town with three rooms available. Book that night before anything else, then build the surrounding Daylines around it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- START FROM A TEMPLATE -->
+  <section class="section bg-shell">
+    <div class="wrap">
+      <h2>Or copy a plan that is already plotted</h2>
+      <p class="measure mb-6">Every sample can be opened, copied onto your own board and edited. These are finished plans, not outlines.</p>
+      <div class="grid grid-3">
+        <a class="tile card card-flat" href="itinerary-iceland-ring-road.html">
+          <div class="card-media"><div class="tile-media ratio-4x3">
+            <img src="https://images.unsplash.com/photo-1476610182048-b716b8518aae?auto=format&fit=crop&w=700&q=70"
+                 alt="An empty two-lane road crossing an open volcanic plain" width="700" height="525" loading="lazy" decoding="async" data-fallback="iceland-empty-road-plain">
+          </div></div>
+          <h3>Iceland South Coast, 3 days</h3>
+          <p>Golden Circle, two waterfalls, black sand and the glacier lagoon, out of Reykjavik.</p>
+          <div class="tile-meta"><span>Driving</span><span>2 travelers</span></div>
+        </a>
+        <a class="tile card card-flat" href="itinerary-kyoto-slow.html">
+          <div class="card-media"><div class="tile-media ratio-4x3">
+            <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=700&q=70"
+                 alt="A tall stand of green bamboo along a narrow walking path" width="700" height="525" loading="lazy" decoding="async" data-fallback="kyoto-bamboo-path">
+          </div></div>
+          <h3>Kyoto Slow Travel, 3 days</h3>
+          <p>Two neighborhoods per Dayline, early temple starts, and no rental car anywhere in it.</p>
+          <div class="tile-meta"><span>Walking and rail</span><span>2 travelers</span></div>
+        </a>
+        <a class="tile card card-flat" href="itinerary-utah-parks.html">
+          <div class="card-media"><div class="tile-media ratio-4x3">
+            <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=700&q=70"
+                 alt="Red rock canyon walls glowing under late afternoon light" width="700" height="525" loading="lazy" decoding="async" data-fallback="utah-red-rock-canyon">
+          </div></div>
+          <h3>Utah Parks Loop, 3 days</h3>
+          <p>Arches, Canyonlands and Dead Horse Point, with the drive times measured honestly.</p>
+          <div class="tile-meta"><span>Driving</span><span>4 travelers</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap wrap-wide">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="wordmark" href="index.html">Lodestar<span class="wordmark-sub">Trip Atlas</span></a>
+        <p>An independent trip-planning company in Seattle. We measure the day before you live it, so your leave gets spent travelling instead of researching.</p>
+        <!-- PLACEHOLDER — REPLACE WITH REAL VERIFIED INFORMATION BEFORE LAUNCH -->
+        <address>
+          Lodestar Atlas LLC<br>
+          2120 Westlake Avenue N, Suite 300<br>
+          Seattle, WA 98109, United States<br>
+          <a href="tel:+12065550172">+1 (206) 555-0172</a><br>
+          <a href="mailto:hello@lodestaratlas.com">hello@lodestaratlas.com</a>
+        </address>
+      </div>
+      <div>
+        <h2>Plan a trip</h2>
+        <ul class="footer-links">
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="trip-planner.html">Trip Planner</a></li>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="itineraries.html">Sample Daylines</a></li>
+          <li><a href="tools.html">Tools &amp; Checklists</a></li>
+          <li><a href="blog.html">Field Guides</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="pricing.html">Pricing &amp; Plans</a></li>
+          <li><a href="for-travel-agents.html">For Travel Agents</a></li>
+          <li><a href="testimonials.html">Reviews</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-newsletter">
+        <h2>Field notes by email</h2>
+        <form class="form" data-validate data-success-message="Logged. Check your inbox for a confirmation email; you are not subscribed until you confirm it." novalidate>
+          <div class="field" data-label="Email address">
+            <label for="footer-email">Email address</label>
+            <input type="email" id="footer-email" name="email" required autocomplete="email" placeholder="you@example.com">
+            <p class="field-error" role="alert" aria-live="polite"></p>
+          </div>
+          <button class="btn btn-primary btn-block btn-sm" type="submit">Subscribe</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+          <p class="form-note">Sent by Lodestar Atlas LLC, 2120 Westlake Avenue N, Suite 300, Seattle, WA 98109. Two emails a month: one route worth stealing, one thing we got wrong. Every email carries a one-click unsubscribe link, and unsubscribing takes effect immediately. We never sell or rent your address. <a href="privacy-policy.html">Privacy Policy</a>.</p>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p style="margin:0">&copy; <span data-year>2026</span> Lodestar Atlas LLC. All rights reserved. Lodestar Atlas is a planning instrument, not a travel agency or tour operator. We do not sell flights, rooms or tours.</p>
+      <ul class="footer-legal-row">
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms-of-service.html">Terms of Service</a></li>
+        <li><a href="cookie-policy.html">Cookie Policy</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+        <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
+        <li><a href="accessibility-statement.html">Accessibility</a></li>
+        <li><a href="refund-policy.html">Refunds &amp; Cancellations</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="dns-link" href="privacy-policy.html#do-not-sell">Do Not Sell or Share My Personal Information</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<section class="cookie-banner" aria-label="Cookie consent">
+  <div class="wrap wrap-wide">
+    <div class="cookie-inner">
+      <div>
+        <h2>We ask first, every time</h2>
+        <p>Four cookies keep this site working and are set automatically. Nothing else runs until you say so: analytics and advertising cookies, Google's included, are set only if you accept them. Reject everything optional and the planner, your Daylines and the Atlas still work exactly the same. Change your mind whenever you like. Read our <a href="cookie-policy.html">Cookie Policy</a>.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="btn btn-primary btn-sm" type="button" data-consent="accept">Accept all</button>
+        <button class="btn btn-ghost btn-sm" type="button" data-consent="reject">Reject non-essential</button>
+        <button class="btn btn-ghost btn-sm" type="button" data-consent="manage" aria-expanded="false" aria-controls="cookie-prefs">Manage preferences</button>
+      </div>
+    </div>
+    <div class="cookie-prefs" id="cookie-prefs">
+      <div class="checkline">
+        <input type="checkbox" id="cookie-essential" checked disabled>
+        <label for="cookie-essential"><strong>Strictly necessary</strong> &ndash; page security, the record of this choice, and form protection. Always on, and it cannot be switched off.</label>
+      </div>
+      <div class="checkline">
+        <input type="checkbox" id="cookie-analytics">
+        <label for="cookie-analytics"><strong>Analytics</strong> &ndash; anonymous page-view counts, so we know which field guides are worth keeping current.</label>
+      </div>
+      <div class="checkline">
+        <input type="checkbox" id="cookie-advertising">
+        <label for="cookie-advertising"><strong>Advertising</strong> &ndash; third-party advertising cookies, Google's included, used to show ads and measure whether they worked.</label>
+      </div>
+      <button class="btn btn-primary btn-sm" type="button" data-consent="save">Save my preferences</button>
+    </div>
+  </div>
+</section>
+
+<button class="to-top" type="button" aria-label="Back to top">&#8593;</button>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
